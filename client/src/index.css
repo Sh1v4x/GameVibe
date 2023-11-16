@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Rockwell";
+}
+
+@font-face {
+  font-family: "Rockwell";
+  src: url("./fonts/ROCK.TTF");
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #1c1c1c;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(221, 142, 4, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background-color: #dd8e04;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(221, 142, 4, 0.5);
+  cursor: pointer;
+}

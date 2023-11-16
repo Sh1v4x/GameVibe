@@ -1,0 +1,1028 @@
+$principal-color: #dd8e04;
+$principal-color-rgba: rgba(221, 142, 4, 0.5);
+$secondary-color: #1c1c1c;
+$item-color: #ffffff;
+$item-color-disabled: gray;
+$input: #333;
+
+@media screen and (min-width: 0px) {
+  a {
+    font-size: 2vh;
+  }
+  h1 {
+    font-size: 3vh;
+  }
+  h3 {
+    font-size: 2vh;
+  }
+  h4 {
+    font-size: 3vh;
+  }
+  i {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  button {
+    color: $principal-color;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    font-size: 2vh;
+    .play-icon,
+    .like-icon {
+      font-size: 3vh;
+    }
+  }
+  .playerOpen {
+    max-height: 72vh;
+    transition: max-height 0.5s;
+  }
+  .playerClose {
+    max-height: 80vh;
+    transition: max-height 0.5s;
+  }
+  .app {
+    .like-icon {
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    .liked {
+      color: #dd8e04;
+    }
+    .not-liked {
+      color: $principal-color-rgba;
+    }
+    // HEADER //
+    overflow-x: hidden;
+    background-color: #0d0d0d;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100vh;
+    color: $principal-color;
+    header {
+      .header-nav {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3vh;
+        background-color: $secondary-color;
+        a {
+          color: $principal-color;
+          text-decoration: none;
+          &:hover {
+            color: $principal-color-rgba;
+          }
+        }
+        li {
+          list-style: none;
+        }
+        .header-left {
+          display: flex;
+        }
+        .header-middle {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          align-items: center;
+          i {
+            margin-right: 1rem;
+            cursor: initial;
+          }
+          .searchbar {
+            display: none;
+          }
+        }
+        .header-right {
+          display: none;
+        }
+        .mobile-logo {
+          font-size: 3vh;
+        }
+        .logo {
+          display: none;
+        }
+      }
+      .mobile-searchbar {
+        width: 100%;
+        background-color: $secondary-color;
+        position: relative;
+        input {
+          width: 100%;
+          padding: 4vh;
+          border: none;
+          background-color: $secondary-color;
+          max-width: 100%;
+          box-sizing: border-box;
+          position: relative;
+          left: 0;
+          right: 0;
+          outline-color: $principal-color;
+          color: $principal-color;
+        }
+      }
+      .header-close-icon {
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        transform: translateY(-50%);
+      }
+    }
+
+    // SIDEBAR //
+
+    .sidebar {
+      height: 100%;
+      position: fixed;
+      z-index: 4;
+      transition: left 0.5s ease-in-out;
+      display: flex;
+      justify-content: center;
+      background-color: $secondary-color;
+      color: $item-color;
+      border-top: 1px solid $principal-color;
+      .sidebar-menu {
+        height: 100%;
+        list-style-type: none;
+        margin: 2vh;
+        h4 {
+          text-align: center;
+        }
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-between;
+          height: 50vh;
+          margin-top: 5vh;
+          list-style: none;
+          li {
+            width: 100%;
+            padding: 1vh 0vh 1vh 0vh;
+            &:nth-child(5) {
+              display: none;
+            }
+          }
+        }
+        .active {
+          border-bottom: 0.5vh solid $principal-color;
+        }
+
+        .sidebar-link {
+          color: $item-color;
+          text-decoration: none;
+        }
+        .not-connected {
+          pointer-events: none;
+          text-decoration: none;
+          color: $item-color-disabled;
+          cursor: default;
+        }
+        .sidebar-menu .connected {
+          color: $item-color;
+          text-decoration: none;
+        }
+        .sidebar-icon {
+          margin: 0 1vh;
+          color: $principal-color;
+        }
+      }
+    }
+    .sidebar.open {
+      left: 0;
+    }
+    .mobile {
+      left: -100%;
+      width: 100%;
+    }
+
+    // HOMEPAGE //
+
+    .homepage {
+      .playerOpen {
+        max-height: 65vh;
+        transition: max-height 0.5s;
+      }
+      .playerClose {
+        max-height: 76vh;
+        transition: max-height 0.5s;
+      }
+      .user-playlist {
+        text-align: center;
+        margin: 3vh 0;
+      }
+      .homepage-game-list {
+        margin-top: 3vh;
+        width: 100%;
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+
+        .game-list-container {
+          width: 100%;
+          overflow-y: auto;
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 2vh;
+          .user-playlist {
+            text-align: center;
+          }
+
+          .game-thumbnail {
+            position: relative;
+            text-align: center;
+            margin: 5vh;
+            width: 25vh;
+            height: 25vh;
+            background-color: $secondary-color;
+            box-shadow: $principal-color 0 0 0 2px,
+              $principal-color 0 4px 6px -1px, $principal-color 0 1px 0 inset;
+            color: $principal-color;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            .phone-title:first-child {
+              display: none;
+            }
+            .phone-title {
+              padding: 2vh 1vh;
+            }
+            .desktop-title {
+              display: none;
+            }
+            .icon-container {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    // PLAYLIST //
+    .loading,
+    .no-content {
+      text-align: center;
+      margin: 10vh;
+      font-size: 3vh;
+    }
+
+    .return-home {
+      color: $principal-color;
+      :hover {
+        color: $principal-color-rgba;
+      }
+    }
+
+    .playlist-container {
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      height: 100vh;
+      padding-bottom: 10vh;
+      position: relative;
+
+      .img-header {
+        width: 100%;
+        height: 35vh;
+        object-fit: cover;
+        filter: blur(5px);
+        position: absolute;
+        opacity: 0.5;
+      }
+
+      .playlist-header-top {
+        position: relative;
+        z-index: 2;
+        opacity: 1;
+        margin: 0 0 5vh 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        img {
+          margin-top: 5vh;
+          width: 30vh;
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+            rgba(0, 0, 0, 0.22) 0px 15px 12px;
+          margin-bottom: 7vh;
+          z-index: 2;
+        }
+        .like-icon {
+          margin: 0;
+          font-size: 7vh;
+          cursor: pointer;
+          z-index: 2;
+        }
+        .like-button {
+          margin: 5vh 0 5vh 0;
+        }
+        .liked {
+          color: $principal-color;
+        }
+        .not-liked {
+          color: $principal-color-rgba;
+        }
+        h3 {
+          z-index: 2;
+          text-align: center;
+          margin: 3vh 0 0 0;
+        }
+      }
+      .liked-songs-header-top {
+        h1 {
+          z-index: 2;
+          text-align: center;
+          margin: 3vh 0 3vh 0;
+        }
+      }
+
+      .song-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .song-item {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid $principal-color;
+        margin-bottom: 1vh;
+        padding: 1vh;
+        vertical-align: center;
+        align-items: center;
+        height: 6vh;
+
+        td {
+          border: none;
+          padding: 1vh;
+        }
+
+        td img {
+          width: 5vh;
+          height: 5vh;
+          object-fit: cover;
+        }
+        td:nth-child(1) {
+          font-weight: bold;
+        }
+        .index {
+          display: none;
+        }
+
+        .song-name {
+          flex: 5;
+          p {
+            text-decoration: none;
+            color: $item-color;
+          }
+        }
+      }
+    }
+
+    /* LOGIN  / REGISTER */
+
+    .login-page {
+      text-align: center;
+      padding-top: 15vh;
+      a {
+        text-decoration: none;
+        color: $principal-color;
+        &:hover {
+          color: $principal-color-rgba;
+        }
+      }
+      .login-title {
+        font-size: 5vh;
+      }
+      .login-content {
+        width: 80%;
+        border: 1px solid $principal-color;
+        margin: 0 auto;
+        text-align: center;
+        padding: 3vh;
+        box-shadow: $principal-color-rgba 0px 22px 70px 4px;
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        input {
+          width: 100%;
+          color: $principal-color;
+          background-color: $input;
+          height: 4vh;
+          margin-bottom: 1vh;
+          padding: 1vh;
+          border: 1px solid $principal-color;
+          &:focus {
+            outline: none;
+          }
+        }
+        .button {
+          width: 100%;
+          padding: 1vh;
+          border: 1px solid #dd8e04;
+          border-radius: 5px;
+          background-color: #dd8e04;
+          color: white;
+          cursor: pointer;
+          transition-duration: 0.2s;
+          &:hover {
+            background-color: $principal-color-rgba;
+          }
+        }
+        .marge {
+          margin-top: 2vh;
+        }
+      }
+      @media (orientation: landscape) {
+        .sidebar {
+          left: -200vh;
+        }
+      }
+    }
+
+    // PROFILE OVERVIEW //
+
+    .account-container {
+      border-radius: 10px;
+      padding: 20px;
+
+      .account-header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .account-title {
+        font-size: 24px;
+        color: $principal-color; /* Couleur principale */
+      }
+      .account-content {
+        background-color: #1c1c1c;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px $principal-color;
+      }
+      .account-info {
+        padding: 10px;
+      }
+
+      .account-info-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 45vh;
+        margin-top: 2vh;
+      }
+
+      .account-info-content-item {
+        margin-bottom: 2vh;
+      }
+      h3 {
+        font-size: 16px;
+        color: $principal-color;
+        margin-bottom: 1vh;
+      }
+
+      .formatted-text {
+        font-size: 14px;
+        color: $principal-color-rgba;
+        width: 100%;
+        text-align: left;
+        padding: 1vh;
+        background-color: $input;
+      }
+
+      .formatted-input {
+        font-size: 14px;
+        color: $principal-color-rgba;
+        width: 100%;
+        text-align: left;
+        padding: 1vh;
+        background-color: $input;
+        &:focus {
+          outline: none;
+          border: 1px solid $principal-color;
+        }
+        border: none;
+      }
+
+      label[for="language-select"] {
+        font-size: 16px;
+        color: $principal-color;
+        font-weight: bold;
+      }
+
+      #language-select {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+        margin-top: 1vh;
+        border: 1px solid $principal-color;
+        border-radius: 5px;
+        background-color: #333;
+        color: $principal-color-rgba;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .delete-account {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid $principal-color;
+        border-radius: 5px;
+        background-color: $principal-color;
+        color: #fff;
+        cursor: pointer;
+        transition-duration: 0.2s;
+
+        &:hover {
+          background-color: $principal-color-rgba;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .app {
+    header {
+      width: 100vw;
+      margin: 0;
+      .header-nav {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        & > * {
+          width: calc(100% / 3 - 32px);
+          &.header-left {
+            .logo {
+              display: initial;
+              font-size: 3vh;
+              margin-left: 2vh;
+            }
+          }
+          &.header-middle {
+            .searchbar {
+              display: initial;
+              position: relative;
+
+              input[type="text"] {
+                width: 35vh;
+                border: 1px solid $input;
+                border-radius: 5vh;
+                background-color: $input;
+                padding: 12px 20px 12px 40px;
+                -webkit-transition: width 0.5s ease-out;
+                transition: width 0.5s ease-out;
+                -webkit-caret-color: $principal-color;
+                caret-color: $principal-color;
+                outline: 0;
+                color: $principal-color;
+              }
+              label {
+                position: absolute;
+                top: 50%;
+                left: 5%;
+                transform: translateY(-50%);
+                color: $principal-color;
+              }
+            }
+          }
+          &.header-right {
+            display: flex;
+            justify-content: flex-end;
+            ul {
+              width: 23vh;
+            }
+            .nav-links {
+              li {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+            }
+            .nav-links_connected {
+              li {
+                text-align: right;
+                width: 100%;
+              }
+            }
+          }
+          .mobile-logo {
+            display: none;
+          }
+        }
+        .header-right-mobile {
+          display: none;
+        }
+      }
+    }
+    .sidebar {
+      height: 100%;
+      justify-content: flex-start;
+      .sidebar-menu {
+        width: 100%;
+        h4 {
+          text-align: center;
+        }
+        ul {
+          height: 45vh;
+          li {
+            .sidebar-link:hover {
+              color: $principal-color;
+            }
+            &:nth-child(5) {
+              display: initial;
+            }
+          }
+        }
+        .active {
+          border-bottom: none;
+          border-left: 0.5vh solid $principal-color;
+        }
+      }
+    }
+    .desktop {
+      left: -30%;
+      width: 25%;
+    }
+    .homepage {
+      .homepage-game-list {
+        width: 90%;
+        margin: 0 auto;
+        transition: transform 0.3s ease-in-out;
+        display: flex;
+        .game-list-container {
+          padding: 5vh;
+          .game-thumbnail {
+            @keyframes thumbnailHoverIn {
+              0% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 0.9;
+              }
+            }
+
+            @keyframes thumbnailHoverOut {
+              0% {
+                opacity: 0.9;
+              }
+              100% {
+                opacity: 0;
+              }
+            }
+
+            padding: 0;
+            background-color: $secondary-color;
+            position: relative;
+            transition-duration: 0.2s;
+            width: min(30vh, 50vw);
+            height: min(20vh, 38vw);
+            margin: 0 5vh 5vh 0;
+            border-radius: 2vh;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: $principal-color 0 0 0 2px,
+              $principal-color 0 4px 6px -1px, $principal-color 0 1px 0 inset;
+            z-index: 0;
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: $secondary-color;
+              opacity: 0;
+              transition: opacity 0.2s;
+              z-index: 1;
+            }
+            &:hover::before {
+              animation: thumbnailHoverIn 0.2s forwards;
+            }
+            &:not(:hover)::before {
+              animation: thumbnailHoverOut 0.2s forwards;
+            }
+            &:hover h3 {
+              opacity: 1;
+            }
+            img {
+              object-fit: cover;
+              border-radius: 2vh;
+              height: 100%;
+              width: 100%;
+            }
+            i {
+              display: initial;
+            }
+            h3 {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 80%;
+              padding: 8px;
+              color: $principal-color;
+              margin: 0;
+              opacity: 0;
+              transition: opacity 0.2s ease-in-out;
+              pointer-events: none;
+              z-index: 2;
+            }
+
+            .icon-container {
+              display: initial;
+              z-index: 2;
+              position: absolute;
+              bottom: 1.5vh;
+              right: 1vh;
+              width: 8vh;
+              display: flex;
+              justify-content: space-between;
+              .like-icon {
+                right: 2vh;
+                transition-duration: 0.2s;
+                border-radius: 50%;
+              }
+              .not-liked {
+                color: rgba(221, 142, 4, 0.5);
+              }
+              .liked {
+                color: $principal-color;
+              }
+              .play-icon {
+                color: $principal-color;
+                transition-duration: 0.2s;
+                background-color: $input;
+                border-radius: 50%;
+              }
+
+              .like-icon:hover,
+              .play-icon:hover {
+                transform: scale(1.2);
+              }
+            }
+          }
+        }
+      }
+    }
+    .playlist-container {
+      .playlist-header {
+        .playlist-filter-img {
+          height: 40%;
+          top: 11vh;
+        }
+        .playlist-header-top {
+          img {
+            width: 35vh;
+          }
+        }
+      }
+      .song-table {
+        width: 80%;
+        margin: 0 auto;
+      }
+      .song-item {
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        .index {
+          display: initial;
+        }
+        .play-icon-element {
+          display: initial;
+        }
+      }
+
+      .song-item td:first-child {
+        width: 100px;
+        text-align: center;
+      }
+
+      .song-item .song-name p {
+        display: inline;
+      }
+
+      .song-item .flex-item {
+        flex: 5;
+      }
+
+      .like-icon {
+        transition-duration: 0.2s;
+      }
+      .play-icon {
+        transition-duration: 0.2s;
+        z-index: 2;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .like-icon:hover,
+      .play-icon:hover {
+        transform: scale(1.2);
+      }
+    }
+    .mobile-searchbar,
+    .header-close-icon {
+      display: none;
+    }
+
+    .login-page {
+      .login-content {
+        width: 20%;
+      }
+    }
+  }
+
+  /* ACCOUNT */
+
+  .account-container {
+    width: 60vh;
+    margin: 0 auto;
+  }
+
+  /* ADMIN PANEL */
+
+  .admin-panel-container {
+    border-top: 1px solid $principal-color;
+    .admin-panel-title {
+      display: flex;
+      position: fixed;
+      vertical-align: center;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      a {
+        background-color: $secondary-color;
+        text-decoration: none;
+        color: $principal-color;
+        border-bottom: 1px solid $principal-color;
+        border-left: 1px solid $principal-color;
+        border-right: 1px solid $principal-color;
+        padding: 2vh 4vh 2vh 4vh;
+        border-bottom-right-radius: 2vh;
+        border-bottom-left-radius: 2vh;
+        &:hover {
+          color: $item-color;
+        }
+      }
+    }
+
+    .admin-panel {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      height: 100vh;
+
+      .admin-panel-content {
+        flex: 1;
+        margin-right: 20px;
+        overflow-y: scroll;
+        padding-right: 2vh;
+      }
+
+      .admin-panel-add_new_content {
+        width: 300px;
+        h2 {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+        form {
+          display: flex;
+          flex-direction: column;
+        }
+        label {
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="file"] {
+          margin-bottom: 10px;
+          padding: 5px;
+          border: 1px solid $principal-color;
+          border-radius: 5px;
+        }
+        button[type="submit"] {
+          background-color: $principal-color;
+          color: #fff;
+          border: none;
+          padding: 10px 15px;
+          border-radius: 5px;
+          cursor: pointer;
+          &:hover {
+            background-color: $principal-color-rgba;
+          }
+        }
+      }
+
+      .admin-panel-content-item {
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #333;
+        border: 1px solid $principal-color;
+        border-radius: 5px;
+
+        h1 {
+          margin-bottom: 2vh;
+          text-decoration: underline;
+        }
+        ul {
+          list-style: none;
+          padding: 0;
+        }
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 5px 0;
+        }
+        a {
+          color: $principal-color;
+          text-decoration: none;
+          &:hover {
+            color: $principal-color-rgba;
+          }
+        }
+        p {
+          font-size: 2vh;
+        }
+        button {
+          margin-right: 10px;
+          color: $principal-color;
+          &:hover {
+            color: $principal-color-rgba;
+          }
+        }
+        img {
+          max-width: 100%;
+          height: auto;
+          border: 1px solid $principal-color;
+          border-radius: 5px;
+          margin: 0 auto;
+        }
+        .add-new-song {
+          width: 100%;
+          background-color: $principal-color;
+          color: #fff;
+          border-radius: 5px;
+          padding: 1vh;
+          margin-top: 1vh;
+        }
+        .add-new-song:hover {
+          background-color: $principal-color-rgba;
+          color: #fff;
+        }
+      }
+
+      .modal {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: left;
+        border: 1px solid $principal-color;
+        padding: 2vh;
+        width: 15vw;
+        .modal-buttons {
+          display: flex;
+          justify-content: space-between;
+        }
+        input {
+          margin-bottom: 10px;
+          padding: 5px;
+          border: 1px solid $principal-color;
+          border-radius: 5px;
+        }
+        input,
+        div {
+          margin-top: 2vh;
+        }
+        button:hover {
+          color: $principal-color-rgba;
+        }
+      }
+    }
+  }
+}
