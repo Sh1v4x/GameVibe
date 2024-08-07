@@ -1,0 +1,1 @@
+Bienvenue dans GameVibe, le projet de fin d'études validant mon diplôme Bac+2 à la 3W Academy. Ce projet est une plateforme dédiée aux passionnés de jeux vidéo, offrant la possibilité d'écouté des musiques provenant de diverse jeux vidéo.
